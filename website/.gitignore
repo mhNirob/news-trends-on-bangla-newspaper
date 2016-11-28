@@ -1,0 +1,12 @@
+*.pyc
+*.db
+*.pid
+*.DS_Store
+*.log
+TODO.txt
+.idea/*
+dump/*
+*.zip
+fabfile.py
+index.wsgi
+
