@@ -5,6 +5,7 @@ import datetime
 import urllib.request
 import re
 from bs4 import BeautifulSoup
+#from sets import Set
 
 text_file = open("Output.txt", "w")
 
@@ -16,20 +17,16 @@ for news in CATEGORIES:
 	with urllib.request.urlopen('http://www.prothom-alo.com/tp-' + news + '/' + current_date) as response:
 	   html_doc_1 = response.read()
 	soup_1 = BeautifulSoup(html_doc_1, 'html.parser')
-
+	link_set = set([])
 	for link in soup_1.find_all('a'):
 		article_link = link.get('href')
 		if re.search("/article/", article_link):
-			with urllib.request.urlopen('http://www.prothom-alo.com' + article_link) as response:
-	   			html_doc_2 = response.read()
-			soup_2 = BeautifulSoup(html_doc_2, 'html.parser')
-			text_file.write(soup_2.get_text())
-			#print(link.get('href'))
+			if(article_link not in link_set):
+				link_set.add(article_link)
+				print(article_link)
+				with urllib.request.urlopen('http://www.prothom-alo.com' + article_link) as response:
+		   			html_doc_2 = response.read()
+				soup_2 = BeautifulSoup(html_doc_2, 'html.parser')
+				text_file.write(soup_2.find('p').get_text())
 text_file.close()
 #print(soup.prettify())
-
-
-
-
-
-
