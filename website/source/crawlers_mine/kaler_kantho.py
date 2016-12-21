@@ -7,7 +7,7 @@ import re
 from bs4 import BeautifulSoup
 #from sets import Set
 
-text_file = open("news_data.txt", "w")
+text_file = open("kaler_kantho.txt", "w")
 
 
 

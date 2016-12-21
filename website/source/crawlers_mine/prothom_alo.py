@@ -7,7 +7,7 @@ import re
 from bs4 import BeautifulSoup
 #from sets import Set
 
-text_file = open("Output.txt", "w")
+text_file = open("prothom_alo.txt", "w")
 
 CATEGORIES = ["firstpage","rokomari","country","capital","world","capitalcity","bangla","editorial","business","entertainment","sports","lastpage"]
 
